@@ -23,7 +23,6 @@ const HashSet = function(){
         const loadFactor = 0.75;
 
         if(capacityFilled >= loadFactor){
-            console.log(key)
             const keyValArr = this.keys().concat([key]);
             this.clear();
             allBucketsSize *= 2;
@@ -64,8 +63,6 @@ const HashSet = function(){
         const index = hash(key);
         const bucket = allBuckets[index];
         let keyExists = false;
-
-        console.log(allBuckets)
 
         if(!bucket){
             return keyExists;
