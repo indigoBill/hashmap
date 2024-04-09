@@ -23,7 +23,7 @@ const HashMap = function(){
         const loadFactor = 0.75;
 
         if(capacityFilled >= loadFactor){
-            const keyValArr = this.entries();
+            const keyValArr = this.entries().concat([[key, value]]);
             this.clear();
             allBucketsSize *= 2;
             allBuckets.length = allBucketsSize;
@@ -31,6 +31,8 @@ const HashMap = function(){
             keyValArr.forEach((keyVal) => {
                 this.set(keyVal[0], keyVal[1]);
             });
+
+            return;
         }
 
         if(!bucket){
@@ -169,7 +171,6 @@ const HashMap = function(){
 
     return { hash, set, get, has, remove, length, clear, keys, values, entries };
 }
-
 
 
 
